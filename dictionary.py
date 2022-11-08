@@ -17,3 +17,21 @@ else:
     print("Not Found")
 
 print(capitals.items())
+
+
+# Review Challenge
+captains = {}
+captains ['Enterprise'] = 'Picard'
+captains ['Voyage'] = 'Janeway'
+captains ['Defiant'] = 'Sisko'
+
+if 'Enterprise' in captains:
+    print("Found")
+
+if 'Discovery' in captains:
+    print("Found")
+else:
+    print("Not Found")
+
+for ship, captain in captains.items():
+    print(f"The {ship} is captained by {captain}")
