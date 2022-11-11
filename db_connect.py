@@ -33,18 +33,34 @@ import sqlite3
 
 # With with key word
 
+# with sqlite3.connect("test_database.db") as connection:
+#     cursor = connection.cursor()
+# cursor.execute(
+#     """CREATE TABLE People(
+#     FirstName TEXT,
+#     LastName TEXT,
+#     Age INT
+#     );"""
+# )
+# cursor.execute(
+#     """INSERT INTO People VALUES(
+#     'Ron',
+#     'Obvious',
+#     42
+#     );""")
+
 with sqlite3.connect("test_database.db") as connection:
     cursor = connection.cursor()
-cursor.execute(
-    """CREATE TABLE People(
+cursor.executescript(
+    """DROP TABLE IF EXISTS People;
+    CREATE TABLE People(
     FirstName TEXT,
     LastName TEXT,
     Age INT
-    );"""
-)
-cursor.execute(
-    """INSERT INTO People VALUES(
+    );
+    INSERT INTO People VALUES(
     'Ron',
     'Obvious',
-    42
-    );""")
+    '42'
+    );"""
+)
