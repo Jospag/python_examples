@@ -7,8 +7,34 @@ import sqlite3
 #     print(time)
 
 # Actual connection to the db
-connection = sqlite3.connect("test_database.db")
-cursor = connection.cursor()
+# connection = sqlite3.connect("test_database.db")
+# cursor = connection.cursor()
+# cursor.execute(
+#     """CREATE TABLE People(
+#     FirstName TEXT,
+#     LastName TEXT,
+#     Age INT
+#     );"""
+# )
+# cursor.execute(
+#     """INSERT INTO People VALUES(
+#     'Ron',
+#     'Obvious',
+#     42
+#     );"""
+# )
+# connection.commit()
+# connection.close()
+
+# cursor.execute("DROP TABLE People;")
+#
+# connection.commit()
+# connection.close()
+
+# With with key word
+
+with sqlite3.connect("test_database.db") as connection:
+    cursor = connection.cursor()
 cursor.execute(
     """CREATE TABLE People(
     FirstName TEXT,
@@ -21,7 +47,4 @@ cursor.execute(
     'Ron',
     'Obvious',
     42
-    );"""
-)
-connection.commit()
-connection.close()
+    );""")
